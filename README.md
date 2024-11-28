@@ -2,10 +2,10 @@
 
 Prerequisites:
 
-  Install requests library 
+  Install requests library: 
     pip install requests
 
-  Install flask library
+  Install flask library:
     pip install flask
 
 Overview:
