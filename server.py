@@ -7,19 +7,19 @@ app = Flask(__name__)
 # start time of application
 start_time = time.time()
 # 8 sec configuration delay (time to finish job/task)
-configuration_time = 8
+configuration_time = 5
 
 # server name config
-app.config['SERVER_NAME'] = 'localhost:5000'
+app.config['SERVER_NAME'] = 'localhost:5001'
 
 # use GET requests 
-@app.route('/status')
+@app.route('/status', methods=['GET'])
 def get_status():
   # calculate time passed 
   time_passed = time.time() - start_time
   # create error threshold 
   complete_time_threshold = configuration_time
-  error_time_threshold = complete_time_threshold + 4 
+  error_time_threshold = complete_time_threshold + 5 
 
   # pending 
   if time_passed < complete_time_threshold:
@@ -35,4 +35,4 @@ def get_status():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, port=5001)
