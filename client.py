@@ -35,6 +35,8 @@ class Client:
         # wait for polling interval
         time.sleep(poll)
         # make sure polling interval doesnt exceed max tries
+        # by dynamically increasing polling interval, 
+        # we minimize unnecessary calls to server preventing excessive loading and delayed responses
         poll = poll * 2
         if poll > self.max_tries:
           poll = self.max_tries
